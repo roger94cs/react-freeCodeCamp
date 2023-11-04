@@ -284,4 +284,216 @@ let nombre= "Gino";
 ---
 
 Comando para crear una aplicación con react:  
-`npx create-react-app mi-app`
+`npx create-react-app my-app`
+
+Si tienes una carpeta creada puedes usar un punto al final para no incluir el nombre:  
+`npx create-react-app .`
+
+## Proyecto 1: Clon de freeCodeCamp
+
+`npx create-react-app testimonios-freecodecamp`
+
+## Proyecto 2: Contador de clics
+
+`npx create-react-app contador-de-clics`
+
+## Proyecto 3: Calculadora Interactiva
+
+`npx create-react-app calculadora`
+
+## Proyecto 4: Aplicación de Tareas
+
+`npx create-react-app app-tareas`
+
+## Componentes de Clase
+
+### Componente de Clase
+
+Clase de ES6 (JavaScript moderno) que retorna un elemento JSX.
+
+### Estructura
+
+- Métodos
+- Estado
+
+### Método
+
+Función asociada a un compoenente que puede acceder  y usar su estado.
+
+~~~javascript
+import React from 'react';
+
+class NombreComponente extends React.Component {
+
+}
+~~~
+
+### Características
+
+- Deben extender React.Component
+- Deben tener un método render() para retornar un elemento de JSX.
+- Pueden recibir props si es necesario.
+
+### Método render()
+
+Método que retorna la estructura del componente en JSX.  
+Es el único método obligatorio para un componente de clase en React.
+
+~~~javascript
+class NombreComponente extends React.Component {
+    render() {
+        return <p>Mi Compoente</p>
+    }
+}
+~~~
+
+### ¿Por qué Compoentes de Clase?
+
+Anteriormente, usábamos componentes de clase para poder trabajar con "estados" de nuestros componentes.  
+En versiones anteriores de React (anteriores a 16.8), **no** podíamos hacerlo en compoentes funcionales.
+
+### ¿Son relavantes?
+
+Si.
+
+
+### Claves
+
+- "No hay plaes para eliminar las clases de React".
+- "No hay prisa por migrar a los Hooks".
+- "Pretendemos que Hooks cubra todos los casos de uso existentes para las clases, pero seguiremos soportando los compoentes de clase en un futuro previsible".
+
+### props
+
+Los componentes de clase también pueden recibir props.  
+Para acceder a un prop:
+
+`this.props.nombreDelProp`
+
+Ej:
+
+~~~javascript
+class Saludo extends React.Component {
+    render() {
+        return <h1>¡Hola, {this.props.nombre}!</h1>;
+    }
+}
+~~~
+
+### this en Componentes de Clase
+
+this se refiere al componente actual.
+
+### Constructor
+
+Método usado para inicializar el estado de un componente de REact.  
+Es llamado automáticamente cuando se crea el componente.
+
+~~~javascript
+class Tarea extends REact.Component {
+    constructor() {
+        super();
+        this.state = {completada: true};
+    }
+
+    render() {
+        return <p>Mi tarea</p>;
+    }
+}
+~~~
+
+Debe de llamanr a **super()** para heredar todas las funciones de su componente "padre" (React.Component).
+
+### props en el Constructor
+
+Si el componente tiene un método constructor y recibe props, deben ser pasados al **constructor** y a **super()**.
+
+~~~javascript
+class Tarea extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return <p>Mi Tarea</p>
+    }
+}
+~~~
+
+### Estado en el Constructor
+
+El objeto "**state**" (estado) se inicializa en el constructor.
+
+~~~javascript
+class Tarea extends React.Component {
+    constructor() {
+        super();
+        this.state = {completada: true};
+    }
+
+    render() {
+        return <p> Mi Tarea</p>
+    }
+}
+~~~
+
+Puede tener varias propiedades separadas por comas.
+
+~~~javascript
+class Tarea extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            completada: true,
+            color: "azul",
+            prioridad: 1
+        };
+    }
+
+    render() {
+        return <p> Mi Tarea</p>;
+    }
+}
+~~~
+
+### Accediendo al estado
+
+`this.state.propiedad`
+
+~~~javascript
+class Tarea extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            completada: true,
+            color: "azul",
+            prioridad: 1
+        };
+    }
+
+    render() {
+        return <p> Mi Tarea tiene prioridad: {this.state.prioridad}</p>;
+    }
+}
+~~~
+
+### Actualizando el estado
+
+Para actualizar el estado una o más propiedades del objeto "state", se llama a **this.setState()**  
+Y se pasa como argumento un objeto con las propiedades que se van a actualizar y sus nuevos valores.
+
+`this.setState();`
+
+~~~javascript
+this.setState({
+    completada: false,
+    color: "verde"
+})
+~~~
+
+### Métodos de Ciclo de Vida
+
+Métodos especiales de React usados para realizar operaciones con compoenentes en momentos específicos de su vida en el DOM.
+
+## Testimonios freeCodeCamp con Componentes de Clase
+
